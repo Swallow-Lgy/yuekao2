@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spcheck"
+        android:layout_marginTop="40dp"
+        />
+      <ImageView
+          android:layout_width="100dp"
+          android:layout_height="100dp"
+          android:layout_toRightOf="@id/spcheck"
+          android:id="@+id/spimage"
+          />
+         <TextView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:id="@+id/spname"
+             android:layout_toRightOf="@id/spimage"
+             />
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+            android:id="@+id/spprice"
+             android:layout_marginTop="60dp"
+             android:layout_toRightOf="@id/spimage"
+             />
+        <com.example.dell.yuekao2.view.JiaView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/jiaview"
+            android:layout_toRightOf="@id/spprice"
+            android:layout_below="@id/spname"
+            android:layout_marginTop="60dp"
+            ></com.example.dell.yuekao2.view.JiaView>
+
+</RelativeLayout>
