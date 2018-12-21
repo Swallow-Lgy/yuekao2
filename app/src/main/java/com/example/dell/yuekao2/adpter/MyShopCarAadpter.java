@@ -69,7 +69,7 @@ public class MyShopCarAadpter extends RecyclerView.Adapter<MyShopCarAadpter.View
             @Override
             public void onClick(View v) {
                 mList.get(i).setCheck(viewHolder.checkBox.isChecked());
-               myCarGoodsAdpter.selectOrRemoveAll(viewHolder.checkBox.isChecked());
+                myCarGoodsAdpter.selectOrRemoveAll(viewHolder.checkBox.isChecked());
             }
         });
     }

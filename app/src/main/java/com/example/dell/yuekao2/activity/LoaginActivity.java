@@ -48,6 +48,12 @@ public class LoaginActivity extends AppCompatActivity implements View.OnClickLis
                 startActivity(intent);
             }
         });
+        googsAdpter.setOnLongClickLister(new MyGoogsAdpter.longClick() {
+            @Override
+            public void longClickLister(View view, int position) {
+                googsAdpter.del(view,position);
+            }
+        });
     }
       public void loaData(int id){
         HashMap<String,String>map = new HashMap<>();

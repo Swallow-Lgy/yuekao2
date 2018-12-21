@@ -44,6 +44,7 @@ public class JiaView extends LinearLayout implements View.OnClickListener  {
         ImageView jian=view.findViewById(R.id.jian);
         jian.setOnClickListener(this);
         editText = view.findViewById(R.id.jsedit);
+        addView(view);
         editText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -52,9 +53,17 @@ public class JiaView extends LinearLayout implements View.OnClickListener  {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                String str = s.toString();
-                Integer integer = Integer.valueOf(str);
+               try {
+                   String str = s.toString();
+                   num = Integer.valueOf(str);
 
+               }
+               catch (Exception e){
+                   list.get(position).setNum(1);
+               }
+                if (monCall!=null){
+                    monCall.onCallBack();
+                }
             }
 
             @Override
@@ -62,7 +71,7 @@ public class JiaView extends LinearLayout implements View.OnClickListener  {
 
             }
         });
-        addView(view);
+
     }
     private int num;
     private List<ShopCarBean.DataBean.ListBean> list = new ArrayList<>();

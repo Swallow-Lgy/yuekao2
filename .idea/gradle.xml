@@ -9,6 +9,9 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/erweima" />
+            <option value="$PROJECT_DIR$/gaode" />
+            <option value="$PROJECT_DIR$/gaode2" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

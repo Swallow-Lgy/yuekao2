@@ -1,5 +1,7 @@
 package com.example.dell.yuekao2.adpter;
 
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -69,10 +71,48 @@ public class MyGoogsAdpter extends RecyclerView.Adapter<MyGoogsAdpter.ViewHolder
                  }
             }
         });
+        viewHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                if (mLongClick!=null){
+                    mLongClick.longClickLister(v,i);
+                }
+                return true;
+            }
+        });
     }
    public int getId(int posions){
        int pid = mList.get(posions).getPid();
        return pid;
+   }
+   public void del(final View view , final int i){
+        final float f = view.getX();
+          ObjectAnimator animator = ObjectAnimator.ofFloat(view,"translationX",0,500);
+          animator.setDuration(1000);
+          animator.start();
+          animator.addListener(new Animator.AnimatorListener() {
+              @Override
+              public void onAnimationStart(Animator animation) {
+                  mList.remove(i);
+                  notifyDataSetChanged();
+                  view.setX(f);
+              }
+
+              @Override
+              public void onAnimationEnd(Animator animation) {
+
+              }
+
+              @Override
+              public void onAnimationCancel(Animator animation) {
+
+              }
+
+              @Override
+              public void onAnimationRepeat(Animator animation) {
+
+              }
+          });
    }
     @Override
     public int getItemCount() {
@@ -105,6 +145,12 @@ public class MyGoogsAdpter extends RecyclerView.Adapter<MyGoogsAdpter.ViewHolder
     public interface onButClick{
         void onButtonClick();
     }
-
+    longClick mLongClick;
+    public void setOnLongClickLister(longClick longClick){
+        mLongClick=longClick;
+    }
+    public  interface longClick{
+        void longClickLister(View view,int position);
+    }
 
 }
